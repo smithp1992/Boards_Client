@@ -1,0 +1,41 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-dark">
+        <div class="buttons">
+            <button class="button text-color button-clear button-size button-icon ion-ios-close-empty" ng-click="closeModeratorModal()"></button>
+        </div>
+        <h1 class="title">Moderators</h1>
+    </ion-header-bar>
+    <ion-content class="background-dark" overflow-scroll="true">
+        <div ng-if="isOwner">
+            <form ng-submit="userSearch('moderator')">
+                <ion-list>
+                    <ion-item class="item-input no-padding-top-bottom">
+                        <input class="text-color" type="search" placeholder="Search Users" ng-model="user.search">
+                        <button type="submit" class="button button-clear text-color icon ion-ios-search">
+                        </button>
+                    </ion-item>
+                </ion-list>
+            </form>
+        </div>
+        <div class="row" ng-if="loading">
+            <div class="col" align="center">
+                <ion-spinner></ion-spinner>
+            </div>
+        </div>
+        <div ng-if="!loading">
+            <ion-list class="list-borderless">
+                <ion-item class="item-icon-right" bindonce="users" ng-repeat="user in users">
+                    <h2 class="text-color" align="left" bo-text="user.username"></h2>
+                    <button ng-if="isOwner && !search"
+                            class="button button-clear text-color button-size icon ion-ios-close-empty"
+                            ng-click="removeModerator(user.u_id)">
+                    </button>
+                    <button ng-if="isOwner && search"
+                            class="button button-clear text-color button-size icon ion-ios-plus-empty"
+                            ng-click="addModerator(user.u_id)">
+                    </button>
+                </ion-item>
+            </ion-list>
+        </div>
+    </ion-content>
+</ion-modal-view>

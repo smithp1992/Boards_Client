@@ -1,0 +1,24 @@
+<ion-view view-title="Select Board">
+    <ion-content class="background-dark" overflow-scroll="true">
+        <div class="row" ng-if="loading">
+            <div class="col" align="center">
+                <ion-spinner></ion-spinner>
+            </div>
+        </div>
+        <ion-list class="list-borderless" ng-show="!loading">
+            <ion-item bindonce="boards" class="item-light item-avatar-right" ng-repeat="item in boards" ng-click="boardSelect(item)">
+                <img bo-src="'data:image/PNG;base64,' + item.logo">
+                <h2 class="text-color" align="left" bo-text="item.b_name"></h2>
+                <p class="text-color" align="left" bo-text="item.about"></p>
+                <span style="margin-right: 15px" class="badge badge-dark" bo-text="item.count"></span>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll ng-if="!noMoreBoards" on-infinite="getMoreBoards()" distance="20%" immediate-check="false">
+        </ion-infinite-scroll>
+        <div ng-if="!loading && emptyBoards" class="row text-center">
+            <div class="col" align="center">
+                <h2 class="text-grey">No Boards</h2>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,14 @@
+/* Empty. Add your own CSS if you like */
+.slider {
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+}
+
+.slider-slide {
+  padding-top: 80px !important;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+}

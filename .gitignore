@@ -1,0 +1,9 @@
+.idea
+keystore/
+node_modules/
+platforms/
+keystore/boards_release_armv7.apk
+keystore/boards_release_x86.apk
+plugins/
+www/lib/
+hooks/

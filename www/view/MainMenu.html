@@ -1,0 +1,21 @@
+<ion-view>
+    <ion-nav-title>{{title}}</ion-nav-title>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear icon ion-ios-search-strong" ng-click="goToSearchMenu()"></button>
+        <button class="button button-icon button-clear icon ion-android-add" ng-click="goToAddBoardMenu()" ></button>
+    </ion-nav-buttons>
+    <ion-slide-box class="background-dark" bounce="false" on-slide-changed="slideChanged(index)">
+        <ion-slide bindonce ng-repeat="slide in menu.slides">
+            <div ng-include src="slide.template"></div>
+        </ion-slide>
+    </ion-slide-box>
+    </ion-slides>
+    <ion-footer-bar class="no-padding">
+        <ion-tabs delegate-handle="local-global-tabs" class="tabs-dark tabs-striped">
+            <ion-tab title="Local" on-select="changeLocalGlobal('local')">
+            </ion-tab>
+            <ion-tab title="Global" on-select="changeLocalGlobal('global')">
+            </ion-tab>
+        </ion-tabs>
+    </ion-footer-bar>
+</ion-view>

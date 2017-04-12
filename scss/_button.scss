@@ -1,0 +1,10 @@
+.button.button-size:before {
+  font-size: 35px !important;
+}
+
+/* Form Error Message */
+.button[disabled] {
+  opacity: 0.8;
+  cursor: default !important;
+  pointer-events: none;
+}

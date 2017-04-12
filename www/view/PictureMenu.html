@@ -1,0 +1,55 @@
+<ion-view>
+    <ion-nav-bar class="bar-clear ionicon-shadow" align-title="left">
+        <ion-nav-back-button style="text-shadow: 1px 1px 1px black;" ng-click="goBack()">
+        </ion-nav-back-button>
+        <ion-nav-title board-info class="ionicon-shadow">
+            {{boardInfo.b_name}}
+        </ion-nav-title>
+        <ion-nav-buttons side="right">
+            <button ng-if="isFlag" class="button button-size button-clear icon ion-ios-flag ionicon-shadow" ng-click="reportPopup()"></button>
+            <button class="button button-icon button-clear icon ion-camera ionicon-shadow"
+                    ng-click="goToAddPictureMenu()"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content has-bouncing="false" scroll="false" class="background-dark content-full">
+        <div ng-if="loading">
+            <div style="display: block; height: 40px;"></div>
+            <div class="row">
+                <div class="col" align="center">
+                    <ion-spinner></ion-spinner>
+                </div>
+            </div>
+        </div>
+        <div ng-show="!loading && !tapToRefresh && !noPictures">
+            <canvas id="canvas" class="canvas-view" image-video></canvas>
+            <div class="video">
+                <video webkit-playsinline id="video"></video>
+            </div>
+        </div>
+        <div ng-if="tapToRefresh" class="image-center">
+            <img class="sub-logo" src="img/refresh_icon.png" ng-click="refreshBoard()">
+        </div>
+        <div ng-if="noPictures">
+            <div style="display: block; height: 90px;"></div>
+            <div class="row text-center">
+                <div class="col" align="center">
+                    <h2 class="text-grey">No Pictures</h2>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="bar-clear" ng-if="!tapToRefresh && !noPictures">
+        <div class="row row-center ionicon-shadow">
+            <div align="left" class="col">
+                {{pictureInfo.owner_username}}
+            </div>
+            <div align="center" class="col">
+                <div class="circle-dark">:0{{currentTime}}</div>
+            </div>
+            <div align="right" class="col">
+                Views: {{pictureInfo.count}}
+            </div>
+        </div>
+    </ion-footer-bar>
+
+</ion-view>

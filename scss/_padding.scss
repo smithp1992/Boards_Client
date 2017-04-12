@@ -1,0 +1,25 @@
+.col.no-padding {
+  padding: 0 !important;
+}
+
+.no-padding-top-bottom {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.content-center {
+  position: relative;
+  margin-top: 65%;
+}
+
+.image-center {
+  position: absolute;
+  margin-top: 75%;
+  left: 50%;
+  margin-right: -50px;
+  margin-left: -50px;
+}

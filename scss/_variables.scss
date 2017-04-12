@@ -1,0 +1,24 @@
+$select: #444;
+$normal: #282828;
+$white: #ffffff;
+$grey: #626262;
+
+// Change Dark Theme
+$dark: #4369ba !default;
+$stable: $white !default;
+// $dark: #64b5f6 !default;
+// $dark: #4d3e7e !default;
+$item-light-bg: $normal !default;
+$item-light-active-bg: $select !default;
+$item-light-text: $white !default;
+$item-light-border: $select !default;
+$item-light-active-border: $select !default;
+
+$button-light-bg: $normal !default;
+$button-light-active-bg: $select !default;
+$button-light-text: $white !default;
+$button-light-border: $select !default;
+$button-light-active-border: $select !default;
+
+// Custom
+$text-main: $white;

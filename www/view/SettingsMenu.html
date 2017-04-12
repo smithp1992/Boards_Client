@@ -1,0 +1,76 @@
+<ion-view view-title="Settings">
+    <ion-nav-bar class="bar-dark" align-title="left">
+        <ion-nav-back-button ng-click="goBack()">
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-content class="background-dark">
+        <ion-list class="card background-dark">
+            <div ng-show="!newPassword">
+                <form ng-submit="userUpdate()">
+                    <label class="item">
+                        View Range: {{userInfo.distance}} miles
+                        <label class="range range-dark">
+                            1
+                            <input type="range" name="volume" min="1" max="50" ng-model="userInfo.distance">
+                            50
+                        </label>
+                    </label>
+                    <ion-item class="item-toggle text-color">
+                        View Explicit Content: {{userInfo.nsfw}}
+                        <label class="toggle toggle-dark">
+                            <input type="checkbox" ng-model="userInfo.nsfw">
+                            <div class="track">
+                                <div class="handle"></div>
+                            </div>
+                        </label>
+                    </ion-item>
+                    <ion-item class="item-toggle text-color">
+                        Allow Notifications: {{userInfo.notification}}
+                        <label class="toggle toggle-dark">
+                            <input type="checkbox" ng-model="userInfo.notification">
+                            <div class="track">
+                                <div class="handle"></div>
+                            </div>
+                        </label>
+                    </ion-item>
+                    <label class="item item-input">
+                        <span class="input-label text-color">Username:</span>
+                        <input minlength="1" maxlength="15" type="text" ng-model="userInfo.username">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label text-color">Email:</span>
+                        <input minlength="1" maxlength="50" type="email" ng-model="userInfo.email">
+                    </label>
+                    <div class="padding">
+                        <button type="submit" class="button button-block button-dark">
+                            Update
+                        </button>
+                    </div>
+                </form>
+                <div class="row row-no-padding">
+                    <div class="col" align="center">
+                        <button class="button button-clear text-color" ng-click="setNewPassword()">Change Password
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="newPassword">
+                <form ng-submit="changePassword()">
+                    <label class="item item-input">
+                        <span class="input-label text-color">New Password:</span>
+                        <input minlength="6" type="password" ng-model="updatePassword.password">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label text-color">Verify Pass:</span>
+                        <input minlength="6" type="password" ng-model="updatePassword.verifyPass">
+                    </label>
+                    <div class="padding">
+                        <button type="submit" class="button button-block button-dark">
+                            Change Password
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

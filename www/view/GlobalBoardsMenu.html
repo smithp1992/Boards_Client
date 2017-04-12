@@ -1,0 +1,34 @@
+<ion-tabs delegate-handle="board-tabs" class="tabs-dark tabs-top tabs-striped">
+    <ion-tab title="Trending" on-select="orderList('trending')">
+    </ion-tab>
+    <ion-tab title="Popular" on-select="orderList('popular')">
+    </ion-tab>
+    <ion-tab title="New" on-select="orderList('newest')">
+    </ion-tab>
+    <ion-tab title="Favorites" on-select="orderList('favorite')">
+    </ion-tab>
+</ion-tabs>
+<ion-content class="background-dark has-tabs-top" overflow-scroll="true" delegate-handle="global">
+    <div class="row" ng-if="loading">
+        <div class="col" align="center">
+            <ion-spinner></ion-spinner>
+        </div>
+    </div>
+    <div ng-if="!loading && boardsGlobal.length">
+        <ion-list class="list-borderless">
+            <ion-item bindonce class="item-light item-avatar-right" ng-repeat="item in boardsGlobal" ng-click="goToPictureMenu(item)">
+                <img bo-src="item.logo">
+                <h2 class="text-color" align="left" bo-text="item.b_name"></h2>
+                <p class="text-color" align="left" bo-text="item.about"></p>
+                <span style="margin-right: 15px" class="badge badge-dark">{{item.count}}</span>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll ng-if="!noMoreBoards" on-infinite="getMoreBoards()" distance="20%" immediate-check="false">
+        </ion-infinite-scroll>
+    </div>
+    <div ng-if="!loading && !boardsGlobal.length" class="row text-center">
+        <div class="col" align="center">
+            <h2 class="text-grey">No Boards</h2>
+        </div>
+    </div>
+</ion-content>

@@ -1,0 +1,37 @@
+<ion-side-menus enable-menu-with-back-views="false">
+    <ion-side-menu-content drag-content="false">
+        <ion-nav-bar class="bar-dark" align-title="left">
+            <ion-nav-back-button>
+            </ion-nav-back-button>
+            <ion-nav-buttons side="left">
+                <button icon-platform class="button button-icon button-clear icon ion-navicon"
+                        menu-toggle="left"></button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view name="menuContent"></ion-nav-view>
+    </ion-side-menu-content>
+    <ion-side-menu side="left" width="200">
+        <ion-header-bar class="bar-dark">
+            <h1 class="title">Menu</h1>
+        </ion-header-bar>
+        <ion-content class="background-dark" overflow-scroll="false">
+            <ion-list class="list-borderless">
+                <ion-item menu-toggle class="text-color item-light" ng-click="userBoards()">
+                    My Boards
+                </ion-item>
+                <ion-item menu-toggle class="text-color item-light" ng-click="userPictures()">
+                    My Pictures
+                </ion-item>
+                <ion-item menu-toggle class="text-color item-light" ng-click="settings()">
+                    Settings
+                </ion-item>
+                <ion-item menu-toggle class="text-color item-light" ng-click="help()">
+                    Help
+                </ion-item>
+                <ion-item menu-toggle class="text-color item-light" ng-click="logoutUser()">
+                    Log Out
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

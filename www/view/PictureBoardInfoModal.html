@@ -1,0 +1,61 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-dark">
+        <div class="buttons">
+            <button class="button text-color button-clear button-size button-icon ion-ios-close-empty"  ng-click="closeBoardInfoModal()"></button>
+        </div>
+        <h1 class="title">Board Information</h1>
+        <div class="buttons">
+            <button icon-favorite class="button button-clear ion-star star-white" on-icon="ion-star star-yellow" off-icon="ion-star star-white"></button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="background-dark">
+        <ion-list class="card background-dark">
+            <ion-item class="item-light item-avatar-right">
+                <img ng-src="{{::boardInfo.logo}}">
+                <h2 class="text-color" align="left">{{::boardInfo.b_name}}</h2>
+                <p class="text-color" align="left">{{::boardInfo.about}}</p>
+                <span style="margin-right: 15px" class="badge badge-dark">{{::boardInfo.count}}</span>
+            </ion-item>
+            <!-- Board Email -->
+            <label class="item" ng-if="boardInfo.email != ''">
+                <h2 class="text-color">Board Email: {{::boardInfo.email}}</h2>
+            </label>
+            <!-- Picture Expire -->
+            <label class="item">
+                <h2 class="text-color">Pictures Expire in {{::boardInfo.pic_expire}} days</h2>
+            </Label>
+            <!-- NSFW Board -->
+            <label ng-if="boardInfo.nsfw" class="item">
+                <h2 class="text-color">Allows Explicit Content</h2>
+            </Label>
+            <!-- View Range -->
+            <label class="item">
+                <h2 class="text-color">View Range: {{::boardInfo.view_range}}</h2>
+            </label>
+            <!-- Post Range -->
+            <label class="item">
+                <h2 class="text-color">Post Range: {{::boardInfo.post_range}}</h2>
+            </label>
+            <!-- Refresh Pictures -->
+            <label class="item">
+                <h2 class="text-color">Refresh Pictures: {{::boardInfo.repeat_view}}</h2>
+            </label>
+            <!-- Age Range -->
+            <label class="item">
+                Age Range:
+                <div class="row row-top row-no-padding">
+                    <div class="col" align="left">
+                        <label class="item">
+                            <span class="input-label text-color">Min: {{::boardInfo.min_age}}</span>
+                        </label>
+                    </div>
+                    <div class="col" align="left">
+                        <label class="item">
+                            <span class="input-label text-color">Max: {{::boardInfo.max_age}}</span>
+                        </label>
+                    </div>
+                </div>
+            </label>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

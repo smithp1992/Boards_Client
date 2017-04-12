@@ -1,0 +1,60 @@
+.logo {
+  margin-top: 15%;
+  width: 200px;
+  height: auto;
+}
+.sub-logo {
+  width: 100px;
+  height: auto;
+}
+
+/* Star Favorite CSS */
+.star-white {
+  font-size: 23px !important;
+  color: $white !important;
+}
+
+.star-yellow {
+  font-size: 23px !important;
+  color: $energized !important;
+}
+
+/* Popup CSS */
+.popup {
+  background-color: rgba(40, 40, 40, 0.95) !important;
+}
+
+.popup-head {
+  background-color: transparent;
+  border-color: $select;
+}
+
+.popup-title {
+  color: $white;
+  font-size: 16px !important;
+  font-weight: normal;
+}
+
+.ionicon-shadow {
+  text-shadow: 1px 1px 1px black;
+}
+
+/* Spinner Layout */
+.spinner svg {
+  width: 30px;
+  height: 30px;
+  stroke: $dark;
+  fill: $dark;
+}
+
+/* Circle Icon */
+.circle-dark {
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
+  font-size: 14px;
+  color: $white;
+  line-height: 28px;
+  text-align: center;
+  background: $dark;
+}

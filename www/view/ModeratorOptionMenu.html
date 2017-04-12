@@ -1,0 +1,29 @@
+<ion-view>
+    <ion-nav-title>{{title}}</ion-nav-title>
+    <ion-content class="background-dark" overflow-scroll="true">
+        <ion-list class="background-dark">
+            <ion-item class="item-light item-icon-right" ng-click="openModeratorModal()">
+                <i class="icon ion-ios-arrow-right"></i>
+                <h2 class="text-color" align="left">Moderators</h2>
+            </ion-item>
+            <ion-item class="item-light item-icon-right" ng-click="goToPictureMenu('waiting')">
+                <i class="icon ion-ios-arrow-right"></i>
+                <h2 class="text-color" align="left">Waiting Photos</h2>
+                <span style="margin-right: 10px" class="badge badge-dark">{{boardInfo.count}}</span>
+            </ion-item>
+            <ion-item class="item-light item-icon-right" ng-click="goToPictureMenu('active')">
+                <i class="icon ion-ios-arrow-right"></i>
+                <h2 class="text-color" align="left">Active Photos</h2>
+                <span style="margin-right: 10px;" class="badge badge-dark">{{boardInfo.activeCount}}</span>
+            </ion-item>
+            <ion-item class="item-light item-icon-right" ng-click="openBlacklistModal()">
+                <i class="icon ion-ios-arrow-right"></i>
+                <h2 class="text-color" align="left">Banned Users</h2>
+            </ion-item>
+            <ion-item class="item-light item-icon-right" ng-if="isOwner" ng-click="openBoardInfoModal()">
+                <i class="icon ion-ios-arrow-right"></i>
+                <h2 class="text-color" align="left">Edit Board</h2>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

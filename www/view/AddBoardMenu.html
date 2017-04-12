@@ -1,0 +1,96 @@
+<ion-view view-title="Add Board">
+    <ion-content class="background-dark">
+        <ion-list>
+            <form ng-submit="boardRegister()">
+                <ion-item class="item-light item-avatar-right">
+                    <img ng-src="{{image}}">
+                    <h2 class="text-color" align="left">{{boardInfo.b_name}}</h2>
+                    <p class="text-color" align="left">{{boardInfo.about}}</p>
+                    <span style="margin-right: 15px" class="badge badge-dark">0</span>
+                </ion-item>
+                <label class="item item-input">
+                    <span class="input-label text-color">Title:</span>
+                    <input minlength="1" maxlength="20" class="text-color" type="text" ng-model="boardInfo.b_name">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label text-color">Description:</span>
+                    <input minlength="1" maxlength="40" class="text-color" type="text" ng-model="boardInfo.about">
+                </label>
+                <label class="item item-light item-icon-right text-color" ng-click="addLogo()">
+                    Set Logo
+                    <i class="icon ion-ios-arrow-right"></i>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label text-color">Board Email:</span>
+                    <input maxlength="50" class="text-color" type="text" placeholder="(optional)" ng-model="boardInfo.email">
+                </label>
+                <label class="item">
+                    Pictures Expire in {{boardInfo.pic_expire}} days
+                    <label class="range range-dark">
+                        1
+                        <input type="range" min="1" max="7" ng-model="boardInfo.pic_expire">
+                        7
+                    </label>
+                </label>
+                <ion-item class="item-toggle text-color">
+                    Allow Explicit Content: {{boardInfo.nsfw}}
+                    <label class="toggle toggle-dark">
+                        <input type="checkbox" ng-model="boardInfo.nsfw" ng-change="checkAgeRange()">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </ion-item>
+                <ion-item class="item-toggle text-color">
+                    View Range: {{boardInfo.view_range}}
+                    <label class="toggle toggle-dark">
+                        <input type="checkbox" ng-model="toggle.view_range" ng-change="changeViewRange()">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </ion-item>
+                <ion-item class="item-toggle text-color">
+                    Post Range: {{boardInfo.post_range}}
+                    <label class="toggle toggle-dark">
+                        <input type="checkbox" ng-model="toggle.post_range" ng-change="changePostRange()">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </ion-item>
+                <ion-item class="item-toggle text-color">
+                    Refresh Pictures: {{boardInfo.repeat_view}}
+                    <label class="toggle toggle-dark">
+                        <input type="checkbox" ng-model="boardInfo.repeat_view" ng-change="boardInfo.repeat_view">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </ion-item>
+                <ion-item class="text-color">
+                    Age Range:
+                    <div class="row row-no-padding">
+                        <div class="col" align="left">
+                            <label class="item borderless item-input">
+                                <span class="input-label text-color">Min:</span>
+                                <input class="text-color" align="center" min="1" max="100" type="number" ng-model="boardInfo.min_age">
+                            </label>
+                        </div>
+                        <div class="col" align="left">
+                            <label class="item borderless item-input">
+                                <span class="input-label text-color">Max:</span>
+                                <input class="text-color" align="center" min="1" max="100" type="number" ng-model="boardInfo.max_age">
+                            </label>
+                        </div>
+                    </div>
+                </ion-item>
+                <div class="padding">
+                    <button type="submit" class="button button-block button-dark">
+                        Create Board
+                    </button>
+                </div>
+            </form>
+        </ion-list>
+    </ion-content>
+</ion-view>

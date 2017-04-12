@@ -1,0 +1,32 @@
+<ion-view>
+    <ion-nav-title>{{title}}</ion-nav-title>
+    <ion-content class="background-dark" overflow-scroll="true">
+        <form name="searchForm" ng-submit="searchBoards()" novalidate>
+            <ion-list>
+                <ion-item class="item-input no-padding-top-bottom">
+                    <input minlength="1" type="search" placeholder="Search" ng-model="search.board" required>
+                    <button type="submit" class="button button-clear text-color icon ion-ios-search"
+                            ng-disabled="!searchForm.$valid">
+                    </button>
+                </ion-item>
+            </ion-list>
+        </form>
+        <div class="row" ng-if="loading">
+            <div class="col" align="center">
+                <ion-spinner></ion-spinner>
+            </div>
+        </div>
+        <div ng-if="!loading">
+            <ion-list class="list-borderless">
+                <ion-item bindonce="boards" class="item-light item-avatar-right" ng-repeat="item in boards" ng-click="goToPictureMenu(item)">
+                    <img bo-src="item.logo">
+                    <h2 class="text-color" align="left" bo-text="item.b_name"></h2>
+                    <p class="text-color" align="left" bo-text="item.about"></p>
+                    <span style="margin-right: 15px" class="badge badge-dark" bo-text="item.count"></span>
+                </ion-item>
+            </ion-list>
+            <ion-infinite-scroll ng-if="!noMoreBoards" on-infinite="getMoreBoards()" distance="20%" immediate-check="false">
+            </ion-infinite-scroll>
+        </div>
+    </ion-content>
+</ion-view>

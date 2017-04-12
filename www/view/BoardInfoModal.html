@@ -1,0 +1,105 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-dark">
+        <div class="buttons">
+            <button class="button text-color button-clear button-size button-icon ion-ios-close-empty" ng-click="closeBoardInfoModal()"></button>
+        </div>
+        <h1 class="title">Edit Board</h1>
+        <div class="buttons">
+            <button class="button button-size button-clear icon ion-ios-trash" ng-click="deleteConfirm()"></button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="background-dark">
+        <ion-list class="card background-dark">
+            <form ng-submit="updateBoardInfo()">
+                <ion-item class="item-light item-avatar-right">
+                    <img ng-src="{{image}}">
+                    <h2 class="text-color" align="left">{{editInfo.b_name}}</h2>
+                    <p class="text-color" align="left">{{editInfo.about}}</p>
+                    <span style="margin-right: 15px" class="badge badge-dark">{{editInfo.count}}</span>
+                </ion-item>
+                <label class="item item-input">
+                    <span class="input-label text-color">Title:</span>
+                    <input minlength="1" maxlength="20" class="text-color" type="text" ng-model="editInfo.b_name">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label text-color">Description:</span>
+                    <input minlength="1" maxlength="40" class="text-color" type="text" ng-model="editInfo.about">
+                </label>
+                <label class="item item-light item-icon-right text-color" ng-click="addLogo()">
+                    Set Logo
+                    <i class="icon ion-ios-arrow-right"></i>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label text-color">Board Email:</span>
+                    <input class="text-color" type="text" placeholder="(optional)" ng-model="editInfo.email">
+                </label>
+                <label class="item">
+                    Pictures Expire in {{editInfo.pic_expire}} days
+                    <label class="item range range-dark">
+                        1
+                        <input type="range" name="volume" min="1" max="7" ng-model="editInfo.pic_expire">
+                        7
+                    </label>
+                </label>
+                <ion-item class="item-toggle text-color">
+                    Allow Explicit Content: {{editInfo.nsfw}}
+                    <label class="toggle toggle-dark">
+                        <input type="checkbox" ng-model="editInfo.nsfw" ng-change="checkAgeRange()">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </ion-item>
+                <ion-item class="item-toggle text-color">
+                    View Range: {{editInfo.view_range}}
+                    <label class="toggle toggle-dark">
+                        <input type="checkbox" ng-model="toggle.view_range" ng-change="changeViewRange()">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </ion-item>
+                <ion-item class="item-toggle text-color">
+                    Post Range: {{editInfo.post_range}}
+                    <label class="toggle toggle-dark">
+                        <input type="checkbox" ng-model="toggle.post_range" ng-change="changePostRange()">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </ion-item>
+                <ion-item class="item-toggle text-color">
+                    Refresh Pictures: {{editInfo.repeat_view}}
+                    <label class="toggle toggle-dark">
+                        <input type="checkbox" ng-model="editInfo.repeat_view" ng-change="editInfo.repeat_view">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </ion-item>
+                <ion-item class="text-color">
+                    Age Range:
+                    <div class="row row-top row-no-padding">
+                        <div class="col" align="left">
+                            <label class="item item-input">
+                                <span class="input-label text-color">Min:</span>
+                                <input class="text-color" align="center" min="1" max="100" type="number" ng-model="editInfo.min_age">
+                            </label>
+                        </div>
+                        <div class="col" align="left">
+                            <label class="item item-input">
+                                <span class="input-label text-color">Max:</span>
+                                <input class="text-color" align="center" min="1" max="100" type="number" ng-model="editInfo.max_age">
+                            </label>
+                        </div>
+                    </div>
+                </ion-item>
+                <div class="padding">
+                    <button type="submit" class="button button-block button-dark">
+                        Update Board
+                    </button>
+                </div>
+            </form>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

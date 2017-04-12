@@ -1,0 +1,36 @@
+
+Adding Custom icon to notification drawer: (Android)
+- Add hdpi, mdpi, xhdpi, xxhdpi, and xxxhdpi icons to the res folder of the Android application.
+
+
+Adding Notification Sounds: (Android, iOS)
+- Android:
+    - Add "sound" file to Android folder: "res/raw" directory
+
+- iOS:
+    - Add "sound" file to iOS folder: "Boards/resources" directory
+
+JSON Example: (Server -> Phone)
+{
+  "tokens": ["your", "device", "tokens"],
+  "profile": "my-security-profile",
+  "notification": {
+    "title": "Some Title",
+    "message": "Some Message",
+    "sound": "sound.wav",
+    "android": {
+        "title": "Only Android Title",
+        "message": "Only Android Message",
+        "sound": "android-sound.wav",
+        "data": {
+            "ledColor": [0,0,255,0], // Green LED
+            "vibrationPattern": [2000, 1000, 500, 500] // Wait 2 sec, Vibrate 1 sec, Wait 0.5 sec, Vibrate 0.5 sec
+        }
+    },
+    "ios": {
+        "title": "Only iOS Title",
+        "message": "Only iOS Message",
+        "sound": "ios-sound.wav"
+    }
+  }
+}

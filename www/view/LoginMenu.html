@@ -1,0 +1,41 @@
+<ion-view>
+    <ion-nav-bar class="bar-clear ionicon-shadow" align-title="left">
+        <ion-nav-back-button style="text-shadow: 1px 1px 1px black;">
+        </ion-nav-back-button>
+        <ion-nav-title class="ionicon-shadow">
+            Login User
+        </ion-nav-title>
+    </ion-nav-bar>
+    <ion-content class="content-full background-dark">
+        <div class="row row-no-padding">
+            <div class="col" align="center">
+                <img class="logo" src="img/app_icon.png">
+            </div>
+        </div>
+        <ion-list class="card background-dark">
+            <form ng-submit="loginUser()">
+                <label class="item item-input user-input">
+                    <span class="text-color input-label">Email:</span>
+                    <input maxlength="50" type="email" ng-model="userInfo.email">
+                </label>
+                <label class="item item-input user-input">
+                    <span class="text-color input-label">Password:</span>
+                    <input minlength="6" type="password" ng-model="userInfo.password">
+                </label>
+                <br>
+                <div class="padding">
+                    <button type="submit" class="button button-block button-dark">
+                        Login
+                    </button>
+                </div>
+            </form>
+            <div class="row row-no-padding">
+                <div class="col" align="center">
+                    <button class="button button-clear text-color" ng-click="goToRecoveryMenu()">
+                        Forgot Password
+                    </button>
+                </div>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

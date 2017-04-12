@@ -1,0 +1,54 @@
+<ion-view>
+    <ion-nav-title>{{boardInfo.b_name}}</ion-nav-title>
+    <ion-nav-bar class="bar-clear ionicon-shadow" align-title="left">
+        <ion-nav-back-button ng-click="goBack()" style="text-shadow: 1px 1px 1px black;">
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-content has-bouncing="false" scroll="false" class="background-dark" style="top: 0 !important;">
+        <div ng-if="loading">
+            <div style="display: block; height: 40px"></div>
+            <div class="row">
+                <div class="col" align="center">
+                    <ion-spinner></ion-spinner>
+                </div>
+            </div>
+        </div>
+        <div ng-show="pictureTaken" class="row no-padding text-box" align="center" on-drag="onDrag($event)" ng-style="draggedStyle">
+            <div class="col no-padding">
+                <label>
+                    <input class="input-style" type="text" maxlength="35" ng-focus="setDraggable(false)" ng-blur="setDraggable(true)" ng-model="pictureInfo.text">
+                </label>
+            </div>
+        </div>
+        <div ng-show="videoTaken || pictureTaken">
+            <canvas id="addCanvas" class="canvas-view" ng-click="addComment()"></canvas>
+            <div class="video">
+                <video webkit-playsinline id="addVideo" loop></video>
+            </div>
+            <div style="display: none">
+                <canvas id="canvas"></canvas>
+            </div>
+        </div>
+        <div ng-if="!pictureTaken && !videoTaken && !loading" class="image-center">
+            <img class="sub-logo" src="img/camera_icon.png">
+        </div>
+        <ion-footer-bar class="bar-clear">
+            <div class="row row-center">
+                <div ng-if="pictureTaken && !loading" class="col" align="left">
+                    <div class="button button-clear icon ion-ios-timer-outline ionicon-shadow" ng-click="setTimer()"></div>
+                </div>
+                <div ng-if="!pictureTaken && !videoTaken && !loading" align="center" class="col">
+                    <div class="button button-clear icon ion-camera ionicon-shadow" ng-click="picture()"></div>
+                    <div class="button button-clear icon ion-image ionicon-shadow" ng-click="gallery()"></div>
+                    <div class="button button-clear icon ion-videocamera ionicon-shadow" ng-click="video()"></div>
+                </div>
+                <div ng-if="pictureTaken && !loading" align="right" class="col">
+                    <div class="button button-clear icon ion-android-send ionicon-shadow" ng-click="registerPicture()"></div>
+                </div>
+                <div ng-if="videoTaken && !loading" align="right" class="col">
+                    <div class="button button-clear icon ion-android-send ionicon-shadow" ng-click="registerVideo()"></div>
+                </div>
+            </div>
+        </ion-footer-bar>
+    </ion-content>
+</ion-view>

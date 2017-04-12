@@ -1,0 +1,25 @@
+<ion-view hide-nav-bar="true">
+    <ion-content ng-resize scroll="false" has-bouncing="false" class="background-dark">
+        <div style="display: block" ng-style="{'height': (height - 60) + 'px'}">
+            <ion-slide-box style="margin-bottom: 60px;">
+                <!-- Android Slides -->
+                <ion-slide ng-repeat="image in images">
+                    <img ng-style="{'height': (height - 60) + 'px', 'width': (width) + 'px', 'margin-top': '-75px'}"
+                         ng-src="{{image.src}}"/>
+                </ion-slide>
+            </ion-slide-box>
+        </div>
+        <div class="row row-no-padding">
+            <div class="col">
+                <button class="button button-block button-dark" ng-click="goToUserLogin()">
+                    Login
+                </button>
+            </div>
+            <div class="col">
+                <button class="button button-block button-outline button-light text-color" ng-click="goToCreateUser()">
+                    Sign Up
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
